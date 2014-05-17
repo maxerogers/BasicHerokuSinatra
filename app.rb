@@ -4,7 +4,7 @@ require 'dm-postgres-adapter'
 
 
 get '/' do
-  "Hello World!"
+  Fact.last.data
 end
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
@@ -14,3 +14,5 @@ class Fact
 	property :id, Serial
 	property :name, String, :length => 25
 end	
+
+require './seeds'
