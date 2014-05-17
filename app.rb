@@ -7,7 +7,13 @@ get '/' do
   'Hello World'
 end
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+configure :development do
+    DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
+end
+
+configure :production do
+    DataMapper.setup(:default, ENV['HEROKU_POSTGRESQL_RED_URL'])
+end
 
 class Fact
 	include DataMapper::Resource
