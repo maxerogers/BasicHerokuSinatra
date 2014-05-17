@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'data_mapper'
+require 'dm-postgres-adapter'
+
 
 get '/' do
   "Hello World!"
