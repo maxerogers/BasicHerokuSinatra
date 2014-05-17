@@ -9,7 +9,13 @@ get '/' do
 	slim :index
 end
 
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/blog.db")
+configure :development do
+	DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/blog.db")
+end
+
+configure :production do
+	DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
+end
 
 class Fact
   include DataMapper::Resource
