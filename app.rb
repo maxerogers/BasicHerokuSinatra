@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'slim'
-require 'dm-sqlite-adapter'
+require 'dm-postgres-adapter'
 require 'data_mapper'
 
 get '/' do
