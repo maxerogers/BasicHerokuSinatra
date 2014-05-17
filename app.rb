@@ -14,5 +14,3 @@ class Fact
 	property :id, Serial
 	property :name, String, :length => 25
 end	
-
-DataMapper.auto_upgrade!
