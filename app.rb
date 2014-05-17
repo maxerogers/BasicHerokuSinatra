@@ -15,4 +15,4 @@ class Fact
 	property :name, String, :length => 25
 end	
 
-require './seeds'
+Fact.create(data: 'asdf adsf')
