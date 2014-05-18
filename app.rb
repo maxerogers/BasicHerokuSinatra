@@ -4,13 +4,11 @@ require 'dm-postgres-adapter'
 
 
 get '/' do
-  '#{Fact.last.data}'
+  'Hello World'
 end
 
 configure :development do
     DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
-    DataMapper.finalize
-    Fact.auto_migrate!
 end
 
 configure :production do
@@ -23,3 +21,4 @@ class Fact
 	property :data, String, :length => 25
 end	
 
+DataMapper.finalize
