@@ -1,10 +1,11 @@
 require 'sinatra'
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require 'slim'
 
 
 get '/' do
-  'Hello World'
+  slim :index
 end
 
 configure :development do
