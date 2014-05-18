@@ -4,7 +4,7 @@ require 'dm-postgres-adapter'
 
 
 get '/' do
-  'Hello World'
+  '#{Fact.last.data}'
 end
 
 configure :development do
@@ -18,5 +18,8 @@ end
 class Fact
 	include DataMapper::Resource
 	property :id, Serial
-	property :name, String, :length => 25
+	property :data, String, :length => 25
 end	
+
+DataMapper.finalize
+Fact.auto_migrate!
